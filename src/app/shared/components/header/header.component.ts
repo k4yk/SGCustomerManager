@@ -8,7 +8,9 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService) {
+    this.displayName = this._authService.getLoggedInUserDisplayName();
+  }
 
   ngOnInit(): void {
   }
@@ -18,5 +20,6 @@ export class HeaderComponent implements OnInit {
   }
 
   title = 'Customer Manager';
+  displayName = '';
 
 }

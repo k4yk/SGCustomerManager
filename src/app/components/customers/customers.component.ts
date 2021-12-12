@@ -12,4 +12,6 @@ export class CustomersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  title = "Customers";
+
 }

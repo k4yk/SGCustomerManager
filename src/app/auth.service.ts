@@ -11,14 +11,18 @@ export class AuthService {
     this.getIsAuthenticated();
   }
 
-  private mockUsers = [new User("admin", "admin", "Admin")];
+  public isCredentialsAreValid = true;
+
+  private mockUsers = [new User("admin", "admin", "Mock Admin")];
 
   public login(userName: string, password: string) {
     let user = this.mockUsers.find(i => i.getUsername() === userName);
     if (user?.getPassword() === password) {
+      this.isCredentialsAreValid = true;
       localStorage.setItem("token", JSON.stringify(user));
       this._router.navigate([""]);
     } else {
+      this.isCredentialsAreValid = false;
     }
   }
 
@@ -28,5 +32,9 @@ export class AuthService {
 
   public getIsAuthenticated() {
     return !!localStorage.getItem("token");
+  }
+
+  public getLoggedInUserDisplayName() {
+    return JSON.parse(localStorage.getItem("token")!).displayName;
   }
 }

@@ -18,12 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setUsername() {
-
-  }
-
-  setPassword() {
-
+  getCredentialsAreValid() {
+    return this._authService.isCredentialsAreValid;
   }
 
   login() {
