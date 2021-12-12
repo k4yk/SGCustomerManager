@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Customers } from 'src/app/customers-data';
 
 @Component({
   selector: 'app-customers',
@@ -10,6 +11,7 @@ export class CustomersComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    localStorage.setItem("customers", JSON.stringify(Customers));
   }
 
   public title = "Customers";

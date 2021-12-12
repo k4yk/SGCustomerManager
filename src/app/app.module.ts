@@ -8,12 +8,18 @@ import { AuthService } from './auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { FormsModule } from '@angular/forms';
+import { CustomerCardComponent } from './components/customer-card/customer-card.component';
+import { CardViewComponent } from './components/card-view/card-view.component';
+import { ListViewComponent } from './components/list-view/list-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CustomersComponent
+    CustomersComponent,
+    CustomerCardComponent,
+    CardViewComponent,
+    ListViewComponent
   ],
   imports: [
     BrowserModule,
