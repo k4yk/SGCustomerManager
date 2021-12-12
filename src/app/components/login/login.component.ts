@@ -9,10 +9,11 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  username$: Observable<string> = new Observable(subscriber => subscriber.next(""));
-  password$: Observable<string> = new Observable(subscriber => subscriber.next(""));
+  username: string = "";
+  password: string = "";
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService) { 
+  }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    
+    this._authService.login(this.username, this.password);
   }
 
 }

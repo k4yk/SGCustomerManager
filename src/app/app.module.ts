@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { CustomersComponent } from './components/customers/customers.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CustomersComponent } from './components/customers/customers.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
