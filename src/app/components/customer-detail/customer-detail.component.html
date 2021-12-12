@@ -1,2 +1,9 @@
-<input type="text" [(ngModel)]="name">
-<input type="text" [(ngModel)]="originState">
+<div>
+    <h3>Customer's data</h3>
+    <span class="input-group-text" id="nameDescriptor">Name</span>
+    <input type="text" class="form-control mb-3" [(ngModel)]="name" aria-describedby="nameDescriptor">
+    <span class="input-group-text" id="originStateDescriptor">Origin state</span>
+    <input type="text" class="form-control mb-3" [(ngModel)]="originState" aria-describedby="originStateDescriptor">
+    <p *ngIf="!isValid">Name and origin state are both mandatory!</p>
+    <button (click)="save()" class="btn btn-primary mt-3">Save</button>
+</div>

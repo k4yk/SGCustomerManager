@@ -1,4 +1,6 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CustomerService } from 'src/app/customer.service';
 import { ICustomer } from 'src/app/model/icustomer';
 
 @Component({
@@ -8,14 +10,38 @@ import { ICustomer } from 'src/app/model/icustomer';
 })
 export class CustomerDetailComponent implements OnInit {
 
-  customerDetail: ICustomer = {} as ICustomer;
   name: string = "";
   originState: string = "";
 
-  constructor() {
+  isValid: boolean = true;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public customer: any, private service: CustomerService, private dialogRef: MatDialogRef<CustomerDetailComponent>) {
+    this.name = customer.customer.name;
+    this.originState = customer.customer.originState;
   }
 
   ngOnInit(): void {
+  }
+
+  save() {
+    const customerDataToSave = this.createDataToSave();
+    if (customerDataToSave.name.length === 0 || customerDataToSave.originState.length === 0) {
+      this.isValid = false;
+    } else {
+      this.isValid = true;
+      this.service.saveData(customerDataToSave);
+      this.dialogRef.close();
+    }
+  }
+
+  private createDataToSave() {
+    return {
+      name: this.name,
+      originState: this.originState,
+      id: this.customer.customer.id,
+      gender: this.customer.customer.gender,
+      orders: this.customer.customer.orders
+    } as ICustomer;
   }
 
 }

@@ -11,7 +11,9 @@ export class CustomersComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    localStorage.setItem("customers", JSON.stringify(Customers));
+    if (!localStorage.getItem("customers")) {
+      localStorage.setItem("customers", JSON.stringify(Customers));
+    }
   }
 
   public title = "Customers";

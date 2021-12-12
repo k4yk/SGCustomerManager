@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from 'src/app/customer.service';
 import { ICustomer } from 'src/app/model/icustomer';
 
 @Component({
@@ -10,20 +11,15 @@ export class CardViewComponent implements OnInit {
 
   public customers: ICustomer[] = [];
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
-    const customersJson = JSON.parse(localStorage.getItem("customers")!);
-    const customers = Array.from(customersJson).map((c: any) => {
-      return {
-        id: c.id,
-        name: c.name,
-        gender: c.gender,
-        originState: c.originState,
-        orders: c.orders
-      } as ICustomer;
-    });
-    this.customers = customers;
+    this.getAndSetCustomersData();
+  }
+
+  getAndSetCustomersData() {
+    const customersData = this.customerService.getData();
+    this.customers = customersData;
   }
 
 }

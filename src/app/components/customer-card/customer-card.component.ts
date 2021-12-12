@@ -24,7 +24,9 @@ export class CustomerCardComponent implements OnInit {
   }
 
   onEditClicked() {
-    this.dialog.open(CustomerDetailComponent);
+    this.dialog.open(CustomerDetailComponent, {data: {
+      customer: this.customerData
+    }});
   }
 
 }
