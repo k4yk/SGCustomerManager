@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { CustomerCardComponent } from './components/customer-card/customer-card.component';
 import { CardViewComponent } from './components/card-view/card-view.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
+import { CustomerOrdersComponent } from './components/customer-orders/customer-orders.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +23,21 @@ import { ListViewComponent } from './components/list-view/list-view.component';
     CustomersComponent,
     CustomerCardComponent,
     CardViewComponent,
-    ListViewComponent
+    ListViewComponent,
+    CustomerDetailComponent,
+    CustomerOrdersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
+  ],
+  exports: [
+    MatDialogModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
