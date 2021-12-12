@@ -12,18 +12,18 @@ export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
 
-  constructor(private _authService: AuthService) { 
+  constructor(private authService: AuthService) { 
   }
 
   ngOnInit(): void {
   }
 
-  getCredentialsAreValid() {
-    return this._authService.isCredentialsAreValid;
+  public getCredentialsAreValid() {
+    return this.authService.isCredentialsAreValid;
   }
 
-  login() {
-    this._authService.login(this.username, this.password);
+  public login() {
+    this.authService.login(this.username, this.password);
   }
 
 }

@@ -8,18 +8,18 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _authService: AuthService) {
-    this.displayName = this._authService.getLoggedInUserDisplayName();
+  constructor(private authService: AuthService) {
+    this.displayName = this.authService.getLoggedInUserDisplayName();
   }
 
   ngOnInit(): void {
   }
 
-  onLogoutClicked() {
-    this._authService.logout();
+  public onLogoutClicked() {
+    this.authService.logout();
   }
 
-  title = 'Customer Manager';
-  displayName = '';
+  public title = 'Customer Manager';
+  public displayName = '';
 
 }
