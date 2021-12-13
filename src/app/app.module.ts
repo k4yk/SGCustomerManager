@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
 import { CustomerOrdersComponent } from './components/customer-orders/customer-orders.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -34,10 +35,12 @@ import { CustomerOrdersComponent } from './components/customer-orders/customer-o
     SharedModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    AgGridModule
   ],
   exports: [
-    MatDialogModule
+    MatDialogModule,
+    AgGridModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
