@@ -22,7 +22,7 @@ export class ListViewComponent implements OnInit {
     { headerName: "Name", field: "name", sortable: true },
     { headerName: "Gender", field: "gender", sortable: true, cellRenderer: this.renderGenderRow },
     { headerName: "Origin state", field: "originState", sortable: true },
-    { headerName: "Orders", field: "", cellRendererFramework: ViewOrdersButtonComponent }
+    { headerName: "Orders", field: "", cellRendererFramework: ViewOrdersButtonComponent, width: 120 }
   ];
 
   rowData: ICustomer[] = [];
