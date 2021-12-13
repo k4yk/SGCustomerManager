@@ -1,5 +1,5 @@
 <div class="card-container">
     <div id="name">{{customerData.name}}</div><a class="link" (click)="onEditClicked()">Edit</a>
-    <div id="icon">TODO</div><div id="originState">{{customerData.originState}}</div>
+    <div id="icon">{{getGenderValue(customerData.gender)}}</div><div id="originState">{{customerData.originState}}</div>
     <a class="link" (click)="onViewOrders()">View Orders</a>
 </div>

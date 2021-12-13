@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Gender } from 'src/app/model/gender';
 import { ICustomer } from 'src/app/model/icustomer';
 import { CustomerDetailComponent } from '../customer-detail/customer-detail.component';
 import { CustomerOrdersComponent } from '../customer-orders/customer-orders.component';
@@ -22,17 +23,30 @@ export class CustomerCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onViewOrders() {
+  public onViewOrders() {
     this.dialog.open(CustomerOrdersComponent);
   }
 
-  onEditClicked() {
-    this.dialog.open(CustomerDetailComponent, {data: {
-      customer: this.customerData
-    }});
+  public onEditClicked() {
+    this.dialog.open(CustomerDetailComponent, {
+      data: {
+        customer: this.customerData
+      }
+    });
     this.dialog.afterAllClosed.subscribe(() => {
       this.dataChangedEvent.emit(true);
     });
+  }
+
+  public getGenderValue(gender: Gender | undefined) {
+    switch (gender) {
+      case Gender.male:
+        return "Male";
+      case Gender.female:
+        return "Female";
+      default:
+        return "";
+    }
   }
 
 }
