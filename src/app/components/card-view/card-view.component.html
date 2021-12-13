@@ -1,7 +1,7 @@
 <div class="container">
     <ul>
         <li *ngFor="let customer of customers">
-            <customer-card [customerData]="customer"></customer-card>
+            <customer-card [customerData]="customer" (dataChangedEvent)="getAndSetCustomersData()"></customer-card>
         </li>
     </ul>
 </div>

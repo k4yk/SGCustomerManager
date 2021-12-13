@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ICustomer } from 'src/app/model/icustomer';
 import { CustomerDetailComponent } from '../customer-detail/customer-detail.component';
@@ -14,6 +14,9 @@ export class CustomerCardComponent implements OnInit {
   @Input()
   public customerData: ICustomer = {} as ICustomer;
 
+  @Output()
+  public dataChangedEvent = new EventEmitter<boolean>();
+
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -27,6 +30,9 @@ export class CustomerCardComponent implements OnInit {
     this.dialog.open(CustomerDetailComponent, {data: {
       customer: this.customerData
     }});
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.dataChangedEvent.emit(true);
+    });
   }
 
 }
