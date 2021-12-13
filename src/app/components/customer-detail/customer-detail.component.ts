@@ -31,6 +31,9 @@ export class CustomerDetailComponent implements OnInit {
       this.isValid = true;
       this.service.saveData(customerDataToSave);
       this.dialogRef.close();
+      this.dialogRef.afterClosed().subscribe(() => {
+        window.location.reload();
+      })
     }
   }
 
