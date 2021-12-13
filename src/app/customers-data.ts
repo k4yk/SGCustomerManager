@@ -1,5 +1,7 @@
+import * as moment from "moment";
 import { Gender } from "./model/gender";
 import { ICustomer } from "./model/icustomer";
+import formatMoment from "./moment-helper";
 
 export const Customers: ICustomer[] = [
     {
@@ -7,7 +9,26 @@ export const Customers: ICustomer[] = [
         name: "Ted James",
         gender: Gender.male,
         originState: "Phoenix, Arizona",
-        orders: []
+        orders: [
+            {
+                orderNumber: 1234,
+                item: "Apple",
+                quantity: 3,
+                orderedOn: formatMoment(moment().days(-5).hours(-3))
+            },
+            {
+                orderNumber: 5364,
+                item: "Banana",
+                quantity: 10,
+                orderedOn: formatMoment(moment().days(-5).hours(-2))
+            },
+            {
+                orderNumber: 3233,
+                item: "Orange",
+                quantity: 12,
+                orderedOn: formatMoment(moment().days(-5).hours(-1))
+            }
+        ]
     },
     {
         id: 2,

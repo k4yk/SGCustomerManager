@@ -1,9 +1,6 @@
-import * as moment from "moment";
-
 export interface IOrder {
-    customerId: number;
     orderNumber: number;
-    value: string;
+    item: string;
     quantity: number;
-    orderedOn: moment.Moment;
+    orderedOn: string;
 }

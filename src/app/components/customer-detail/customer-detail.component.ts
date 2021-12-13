@@ -23,6 +23,10 @@ export class CustomerDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  close() {
+    this.dialogRef.close();
+  }
+
   save() {
     const customerDataToSave = this.createDataToSave();
     if (customerDataToSave.name.length === 0 || customerDataToSave.originState.length === 0) {

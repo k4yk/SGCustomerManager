@@ -24,7 +24,11 @@ export class CustomerCardComponent implements OnInit {
   }
 
   public onViewOrders() {
-    this.dialog.open(CustomerOrdersComponent);
+    this.dialog.open(CustomerOrdersComponent, {
+      data: {
+        customer: this.customerData
+      }
+    });
   }
 
   public onEditClicked() {

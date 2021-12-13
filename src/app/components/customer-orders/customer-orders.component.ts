@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ColDef, ColGroupDef } from 'ag-grid-community';
+import { IOrder } from 'src/app/model/iorder';
 
 @Component({
   selector: 'app-customer-orders',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerOrdersComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public customer: any, private dialogRef: MatDialogRef<CustomerOrdersComponent>) { }
 
   ngOnInit(): void {
+    this.rowData = this.customer.customer.orders;
+    this.customerName = this.customer.customer.name;
+  }
+
+  customerName: string = "";
+
+  columnDefinitions: (ColDef | ColGroupDef)[] | null | undefined = [
+    { headerName: "Order no.", field: "orderNumber", sortable: true },
+    { headerName: "Item", field: "item", sortable: true },
+    { headerName: "Quantity", field: "quantity", sortable: true },
+    { headerName: "Ordered on", field: "orderedOn", sortable: true },
+  ];
+
+  rowData: IOrder[] = [];
+
+  public close() {
+    this.dialogRef.close();
   }
 
 }
