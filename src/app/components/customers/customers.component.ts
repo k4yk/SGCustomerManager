@@ -10,6 +10,8 @@ export class CustomersComponent implements OnInit {
 
   constructor() { }
 
+  public view: "card" | "list" = "card";
+
   ngOnInit(): void {
     if (!localStorage.getItem("customers")) {
       localStorage.setItem("customers", JSON.stringify(Customers));
@@ -17,5 +19,17 @@ export class CustomersComponent implements OnInit {
   }
 
   public title = "Customers";
+
+  public setCard() {
+    this.view = "card";
+  }
+
+  public setList() {
+    this.view = "list";
+  }
+
+  public isCardView() {
+    return this.view === "card";
+  }
 
 }

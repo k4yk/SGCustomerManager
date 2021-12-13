@@ -1,5 +1,8 @@
 <app-header></app-header>
 <div class="white-bg container-fluid">
     <h3 class="pt-3">{{title}}</h3>
-    <app-card-view></app-card-view>
+    <input id="cardView" type="button" value="Card View" (click)="setCard()" [disabled]="isCardView()" />
+    <input id="listView" type="button" value="List View" (click)="setList()" [disabled]="!isCardView()" />
+    <app-card-view *ngIf="isCardView()"></app-card-view>
+    <app-list-view *ngIf="!isCardView()"></app-list-view>
 </div>
