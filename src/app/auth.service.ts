@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CredentialsValidationService } from './credentials-validation.service';
 import { User } from './model/user';
 
 @Injectable({
@@ -7,22 +8,21 @@ import { User } from './model/user';
 })
 export class AuthService {
 
-  constructor(private _router: Router) {
+  constructor(private router: Router, private validationService: CredentialsValidationService) {
     this.getIsAuthenticated();
   }
 
-  public isCredentialsAreValid = true;
+  public validationResult: string[] = [];
 
   private mockUsers = [new User("admin", "admin", "Mock Admin")];
 
   public login(userName: string, password: string) {
-    let user = this.mockUsers.find(i => i.getUsername() === userName);
-    if (user?.getPassword() === password) {
-      this.isCredentialsAreValid = true;
+    const validationResult = this.validationService.validate(userName, password, this.mockUsers);
+    this.validationResult = validationResult;
+    if (validationResult.length === 0) {
+      const user = this.mockUsers.find(i => i.getUsername() === userName);
       localStorage.setItem("token", JSON.stringify(user));
-      this._router.navigate([""]);
-    } else {
-      this.isCredentialsAreValid = false;
+      this.router.navigate([""]);
     }
   }
 

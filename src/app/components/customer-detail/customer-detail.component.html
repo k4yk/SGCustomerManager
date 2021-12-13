@@ -4,7 +4,7 @@
     <input type="text" class="form-control mb-3" [(ngModel)]="name" aria-describedby="nameDescriptor">
     <span class="input-group-text" id="originStateDescriptor">Origin state</span>
     <input type="text" class="form-control mb-3" [(ngModel)]="originState" aria-describedby="originStateDescriptor">
-    <p class="red" *ngIf="!isValid">Please specify the details!</p>
+    <app-validation-result [isNotValid]="!isValid" [validationResults]="validationResults"></app-validation-result>
     <div style="display: flex; flex-direction: row; justify-content: space-between;">
         <button (click)="close()" class="btn btn-light mt-3">Cancel</button>
         <button (click)="save()" class="btn btn-primary mt-3">Save</button>

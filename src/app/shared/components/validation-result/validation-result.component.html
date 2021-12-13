@@ -1,0 +1,5 @@
+<ul *ngIf="isNotValid">
+    <li *ngFor="let message of validationResults">
+        <p class="validation-message">{{message}}</p>
+    </li>
+</ul>

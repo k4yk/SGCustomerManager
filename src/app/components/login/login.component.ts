@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   username: string = "";
   password: string = "";
+  validationResults: string[] = [];
 
   constructor(private authService: AuthService) { 
   }
@@ -18,12 +19,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public getCredentialsAreValid() {
-    return this.authService.isCredentialsAreValid;
+  public isValid() {
+    return this.getValiationResults().length === 0;
   }
 
   public login() {
     this.authService.login(this.username, this.password);
+    this.validationResults = this.getValiationResults();
+  }
+
+  private getValiationResults() {
+    return this.authService.validationResult;
   }
 
 }

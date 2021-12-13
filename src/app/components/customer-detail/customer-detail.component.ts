@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CustomerValidationService } from 'src/app/customer-validation.service';
 import { CustomerService } from 'src/app/customer.service';
 import { ICustomer } from 'src/app/model/icustomer';
 
@@ -14,8 +15,13 @@ export class CustomerDetailComponent implements OnInit {
   originState: string = "";
 
   isValid: boolean = true;
+  validationResults: string[] = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public customer: any, private service: CustomerService, private dialogRef: MatDialogRef<CustomerDetailComponent>) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public customer: any,
+    private service: CustomerService,
+    private dialogRef: MatDialogRef<CustomerDetailComponent>,
+    private validationService: CustomerValidationService) {
     this.name = customer.customer.name;
     this.originState = customer.customer.originState;
   }
@@ -29,12 +35,14 @@ export class CustomerDetailComponent implements OnInit {
 
   save() {
     const customerDataToSave = this.createDataToSave();
-    if (customerDataToSave.name.length === 0 || customerDataToSave.originState.length === 0) {
-      this.isValid = false;
-    } else {
+    const validationResult = this.validationService.validate(customerDataToSave.name, customerDataToSave.originState);
+    if (validationResult.length === 0) {
       this.isValid = true;
       this.service.saveData(customerDataToSave);
       this.dialogRef.close();
+    } else {
+      this.validationResults = validationResult;
+      this.isValid = false;
     }
   }
 
