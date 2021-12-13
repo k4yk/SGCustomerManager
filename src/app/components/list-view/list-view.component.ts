@@ -3,6 +3,7 @@ import { ColDef, ColGroupDef, ICellRendererParams } from 'ag-grid-community';
 import { CustomerService } from 'src/app/customer.service';
 import { Gender } from 'src/app/model/gender';
 import { ICustomer } from 'src/app/model/icustomer';
+import { EditCustomerButtonComponent } from './components/edit-customer-button/edit-customer-button.component';
 import { ViewOrdersButtonComponent } from './components/view-orders-button/view-orders-button.component';
 
 @Component({
@@ -19,10 +20,11 @@ export class ListViewComponent implements OnInit {
   }
 
   columnDefinitions: (ColDef | ColGroupDef)[] | null | undefined = [
+    { headerName: "Edit", field: "", cellRendererFramework: EditCustomerButtonComponent, width: 70 },
     { headerName: "Name", field: "name", sortable: true },
     { headerName: "Gender", field: "gender", sortable: true, cellRenderer: this.renderGenderRow },
     { headerName: "Origin state", field: "originState", sortable: true },
-    { headerName: "Orders", field: "", cellRendererFramework: ViewOrdersButtonComponent, width: 120 }
+    { headerName: "Orders", field: "", cellRendererFramework: ViewOrdersButtonComponent, width: 120 },
   ];
 
   rowData: ICustomer[] = [];

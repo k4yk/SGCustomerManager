@@ -17,6 +17,7 @@ import { CustomerDetailComponent } from './components/customer-detail/customer-d
 import { CustomerOrdersComponent } from './components/customer-orders/customer-orders.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ViewOrdersButtonComponent } from './components/list-view/components/view-orders-button/view-orders-button.component';
+import { EditCustomerButtonComponent } from './components/list-view/components/edit-customer-button/edit-customer-button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ViewOrdersButtonComponent } from './components/list-view/components/vie
     ListViewComponent,
     CustomerDetailComponent,
     CustomerOrdersComponent,
-    ViewOrdersButtonComponent
+    ViewOrdersButtonComponent,
+    EditCustomerButtonComponent
   ],
   imports: [
     BrowserModule,
