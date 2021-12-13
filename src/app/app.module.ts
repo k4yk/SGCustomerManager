@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
 import { CustomerOrdersComponent } from './components/customer-orders/customer-orders.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ViewOrdersButtonComponent } from './components/list-view/components/view-orders-button/view-orders-button.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AgGridModule } from 'ag-grid-angular';
     CardViewComponent,
     ListViewComponent,
     CustomerDetailComponent,
-    CustomerOrdersComponent
+    CustomerOrdersComponent,
+    ViewOrdersButtonComponent
   ],
   imports: [
     BrowserModule,
