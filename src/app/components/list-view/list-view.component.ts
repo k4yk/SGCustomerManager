@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ColDef, ColGroupDef, ICellRendererFunc, ICellRendererParams } from 'ag-grid-community';
+import { ColDef, ColGroupDef, ICellRendererParams } from 'ag-grid-community';
 import { CustomerService } from 'src/app/customer.service';
 import { Gender } from 'src/app/model/gender';
 import { ICustomer } from 'src/app/model/icustomer';
