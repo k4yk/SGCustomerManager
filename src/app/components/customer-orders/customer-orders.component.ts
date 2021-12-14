@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { faListAlt } from '@fortawesome/free-solid-svg-icons';
 import { ColDef, ColGroupDef } from 'ag-grid-community';
 import { IOrder } from 'src/app/model/iorder';
 
@@ -9,6 +10,8 @@ import { IOrder } from 'src/app/model/iorder';
   styleUrls: ['./customer-orders.component.css']
 })
 export class CustomerOrdersComponent implements OnInit {
+
+  titleIcon = faListAlt;
 
   constructor(@Inject(MAT_DIALOG_DATA) public customer: any, private dialogRef: MatDialogRef<CustomerOrdersComponent>) { }
 

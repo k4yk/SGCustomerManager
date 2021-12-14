@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { CustomerValidationService } from 'src/app/customer-validation.service';
 import { CustomerService } from 'src/app/customer.service';
 import { ICustomer } from 'src/app/model/icustomer';
@@ -16,6 +17,8 @@ export class CustomerDetailComponent implements OnInit {
 
   isValid: boolean = true;
   validationResults: string[] = [];
+
+  titleIcon = faEdit;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public customer: any,

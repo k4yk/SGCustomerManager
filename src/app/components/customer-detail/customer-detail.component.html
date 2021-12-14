@@ -1,9 +1,9 @@
 <div>
-    <h3>Edit customer's data</h3>
+    <h2><fa-icon [icon]="titleIcon"></fa-icon> Edit customer's data</h2>
     <span class="input-group-text" id="nameDescriptor">Name</span>
     <input type="text" class="form-control mb-3" [(ngModel)]="name" aria-describedby="nameDescriptor">
     <span class="input-group-text" id="originStateDescriptor">Origin state</span>
-    <input type="text" class="form-control mb-3" [(ngModel)]="originState" aria-describedby="originStateDescriptor">
+    <input type="text" class="form-control mb-2" [(ngModel)]="originState" aria-describedby="originStateDescriptor">
     <app-validation-result [isNotValid]="!isValid" [validationResults]="validationResults"></app-validation-result>
     <div style="display: flex; flex-direction: row; justify-content: space-between;">
         <button (click)="close()" class="btn btn-light mt-3">Cancel</button>
