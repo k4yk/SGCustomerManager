@@ -1,19 +1,19 @@
 <div class="container">
-    <div style="text-align: center;">
+    <div class="title">
         <h1><fa-icon [icon]="logoIcon"></fa-icon> Customer Manager</h1>
     </div>
     <form class="container-fluid">
         <div class="input-group mt-3">
-            <span class="input-group-text" id="basic-addon1"><fa-icon [icon]="userIcon"></fa-icon></span>
+            <span class="input-group-text" id="username"><fa-icon [icon]="userIcon"></fa-icon></span>
             <input [(ngModel)]="username" type="text" class="form-control" placeholder="Username" aria-label="Username"
-                aria-describedby="basic-addon1" name="username">
+                aria-describedby="username" name="username">
         </div>
         <div class="input-group mt-3">
-            <span class="input-group-text" id="basic-addon2"><fa-icon [icon]="passwordIcon"></fa-icon></span>
+            <span class="input-group-text" id="password"><fa-icon [icon]="passwordIcon"></fa-icon></span>
             <input [(ngModel)]="password" type="password" class="form-control" placeholder="Password"
-                aria-label="Password" aria-describedby="basic-addon2" name="password">
+                aria-label="Password" aria-describedby="password" name="password">
         </div>
         <app-validation-result [isNotValid]="!isValid()" [validationResults]="validationResults"></app-validation-result>
-        <div style="display: flex; justify-content: end;"><button (click)="login()" class="btn btn-primary mt-3">Login</button></div>
+        <div class="button-container"><button (click)="login()" class="btn btn-primary mt-3">Login</button></div>
     </form>
 </div>
