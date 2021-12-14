@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { faEdit, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import { Gender } from 'src/app/model/gender';
 import { ICustomer } from 'src/app/model/icustomer';
 import { CustomerDetailComponent } from '../customer-detail/customer-detail.component';
@@ -17,6 +18,8 @@ export class CustomerCardComponent implements OnInit {
 
   @Output()
   public dataChangedEvent = new EventEmitter<boolean>();
+
+  editIcon = faEdit;
 
   constructor(private dialog: MatDialog) { }
 

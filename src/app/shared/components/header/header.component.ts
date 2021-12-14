@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faAddressBook, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -7,6 +8,10 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  logoIcon = faAddressBook;
+  userIcon = faUser;
+  signOutIcon = faSignOutAlt;
 
   constructor(private authService: AuthService) {
     this.displayName = this.authService.getLoggedInUserDisplayName();

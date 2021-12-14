@@ -1,3 +1,29 @@
 .white-bg {
     background-color: white;
 }
+
+.content {
+    padding: 10px;
+}
+
+.view-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.view-select-button {
+    border: 0px;
+    color: silver;
+}
+
+.view-select-button:focus {
+    outline: none;
+}
+
+.view-select-button:hover {
+    color: black;
+}
+
+.view-select-button:disabled {
+    color: black;
+}

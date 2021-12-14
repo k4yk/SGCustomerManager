@@ -1,8 +1,18 @@
 <app-header></app-header>
 <div class="white-bg container-fluid">
-    <h3 class="pt-3">{{title}}</h3>
-    <input id="cardView" type="button" value="Card View" (click)="setCard()" [disabled]="isCardView()" />
-    <input id="listView" type="button" value="List View" (click)="setList()" [disabled]="!isCardView()" />
-    <app-card-view *ngIf="isCardView()"></app-card-view>
-    <app-list-view *ngIf="!isCardView()"></app-list-view>
+    <div class="content">
+        <h2 class="pt-3">
+            <fa-icon [icon]="customersIcon"></fa-icon> {{title}}
+        </h2>
+        <button class="view-select-button" id="cardView" (click)="setCard()" [disabled]="isCardView()">
+            <fa-icon [icon]="cardViewIcon"></fa-icon> Card View
+        </button>
+        <button class="view-select-button" id="listView" (click)="setList()" [disabled]="!isCardView()">
+            <fa-icon [icon]="listViewIcon"></fa-icon> List View
+        </button>
+        <div class="view-container">
+            <app-card-view *ngIf="isCardView()"></app-card-view>
+            <app-list-view *ngIf="!isCardView()"></app-list-view>
+        </div>
+    </div>
 </div>

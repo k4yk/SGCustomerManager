@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faBars, faThLarge, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Customers } from 'src/app/customers-data';
 
 @Component({
@@ -9,6 +10,10 @@ import { Customers } from 'src/app/customers-data';
 export class CustomersComponent implements OnInit {
 
   constructor() { }
+
+  customersIcon = faUser;
+  cardViewIcon = faThLarge;
+  listViewIcon = faBars;
 
   public view: "card" | "list" = "card";
 

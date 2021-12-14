@@ -18,6 +18,7 @@ import { CustomerOrdersComponent } from './components/customer-orders/customer-o
 import { AgGridModule } from 'ag-grid-angular';
 import { ViewOrdersButtonComponent } from './components/list-view/components/view-orders-button/view-orders-button.component';
 import { EditCustomerButtonComponent } from './components/list-view/components/edit-customer-button/edit-customer-button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -40,11 +41,13 @@ import { EditCustomerButtonComponent } from './components/list-view/components/e
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    AgGridModule
+    AgGridModule,
+    FontAwesomeModule
   ],
   exports: [
     MatDialogModule,
-    AgGridModule
+    AgGridModule,
+    FontAwesomeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
