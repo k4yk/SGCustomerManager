@@ -12,6 +12,7 @@
 }
 
 .view-select-button {
+    background-color: transparent;
     border: 0px;
     color: silver;
 }
@@ -25,5 +26,6 @@
 }
 
 .view-select-button:disabled {
+    background-color: transparent;
     color: black;
 }
