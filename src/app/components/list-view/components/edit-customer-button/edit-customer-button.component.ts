@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 import { CustomerDetailComponent } from 'src/app/components/customer-detail/customer-detail.component';
@@ -12,7 +13,7 @@ import { CustomerService } from 'src/app/customer.service';
 })
 export class EditCustomerButtonComponent implements ICellRendererAngularComp {
 
-  text = "Edit";
+  editIcon = faEdit;
   params: any = null;
 
   constructor(private dialog: MatDialog, private customerService: CustomerService) { }

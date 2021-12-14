@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { faListAlt } from '@fortawesome/free-solid-svg-icons';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 import { CustomerOrdersComponent } from 'src/app/components/customer-orders/customer-orders.component';
@@ -11,7 +12,7 @@ import { CustomerOrdersComponent } from 'src/app/components/customer-orders/cust
 })
 export class ViewOrdersButtonComponent implements ICellRendererAngularComp {
 
-  text = "View orders";
+  ordersIcon = faListAlt;
   params: any = null;
 
   constructor(private dialog: MatDialog) { }

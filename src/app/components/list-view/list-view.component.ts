@@ -20,11 +20,11 @@ export class ListViewComponent implements OnInit {
   }
 
   columnDefinitions: (ColDef | ColGroupDef)[] | null | undefined = [
-    { headerName: "Edit", field: "", cellRendererFramework: EditCustomerButtonComponent, width: 70 },
+    { headerName: "Edit", field: "", cellRendererFramework: EditCustomerButtonComponent, width: 50 },
     { headerName: "Name", field: "name", sortable: true },
     { headerName: "Gender", field: "gender", sortable: true, cellRenderer: this.renderGenderRow },
     { headerName: "Origin state", field: "originState", sortable: true },
-    { headerName: "Orders", field: "", cellRendererFramework: ViewOrdersButtonComponent, width: 120 },
+    { headerName: "Orders", field: "", cellRendererFramework: ViewOrdersButtonComponent, width: 70 },
   ];
 
   rowData: ICustomer[] = [];
