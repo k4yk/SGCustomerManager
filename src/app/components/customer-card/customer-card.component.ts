@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { faEdit, faPenSquare } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Gender } from 'src/app/model/gender';
 import { ICustomer } from 'src/app/model/icustomer';
 import { CustomerDetailComponent } from '../customer-detail/customer-detail.component';
@@ -45,12 +45,12 @@ export class CustomerCardComponent implements OnInit {
     });
   }
 
-  public getGenderValue(gender: Gender | undefined) {
+  public getImagePathByValue(gender: Gender | undefined) {
     switch (gender) {
       case Gender.male:
-        return "Male";
+        return "assets/pics/male.png";
       case Gender.female:
-        return "Female";
+        return "assets/pics/female.png";
       default:
         return "";
     }

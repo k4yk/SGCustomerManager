@@ -1,13 +1,13 @@
 <div class="card-container">
-    <div id="header">
-        <div id="name">{{customerData.name}}</div><a class="edit" (click)="onEditClicked()">
+    <div class="card-header">
+        <div>{{customerData.name}}</div><a class="edit" (click)="onEditClicked()">
             <fa-icon [icon]="editIcon"></fa-icon>
         </a>
     </div>
-    <div id="details">
-        <div id="gender">{{getGenderValue(customerData.gender)}}</div>
-        <div id="other-data">
-            <div id="originState">{{customerData.originState}}</div>
+    <div class="card-details">
+        <img class="card-gender" [src]="getImagePathByValue(customerData.gender)" />
+        <div class="card-other-data">
+            <div>{{customerData.originState}}</div>
             <a class="link" (click)="onViewOrders()">View Orders</a>
         </div>
     </div>

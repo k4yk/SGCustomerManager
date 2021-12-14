@@ -10,7 +10,7 @@ a.link {
     cursor: pointer;
 }
 
-#header {
+.card-header {
     display: flex;
     justify-content: space-between;
     padding: 5px;
@@ -20,10 +20,20 @@ a.link {
     font-size: 16px;
 }
 
-#details {
+.card-details {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+}
+
+.card-other-data {
+    margin-left: 10px;
+    margin: 5px;
+}
+
+.card-gender {
+    height: 65px;
+    margin: 5px;
 }
 
 .edit {
